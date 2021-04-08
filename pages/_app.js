@@ -1,7 +1,8 @@
-import '../styles/globals.css'
+import { createProxyMiddleware } from 'http-proxy-middleware';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
-}
-
-export default MyApp
+export default createProxyMiddleware({
+    target: 'http://agritrackingsystems.com:3000',
+    changeOrigin: true,
+    prependPath: true,
+    ws: true,
+});
